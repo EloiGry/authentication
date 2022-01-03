@@ -69,4 +69,17 @@ app.post('/login', passport.authenticate("local"), (req, res) => {
     }
 })
 
+app.post('/signup', passport.authenticate("local"), (req, res) => {
+    console.log(req.user);
+    if (req.user) {
+        req.logIn(req.user, (err) => {
+            if (err) {
+                res.status(500).send("An error occured")
+            }
+
+            res.json(req.user)
+        })
+    }
+})
+
 module.exports = app
