@@ -112,7 +112,7 @@ return (
 
             </form>
 
-            {errors}
+            {errors.split('-')}
 
             
         </div>
