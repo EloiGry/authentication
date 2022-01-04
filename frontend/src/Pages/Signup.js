@@ -57,14 +57,12 @@ const Signup = () => {
       validateOnChange: false
     })
 
-    const errors = Object.values(formik.errors)
-
     
 
 return (
 
         <div>
-
+                {error && 'Error Serveur'}
 
 
             <form onSubmit={formik.handleSubmit}>
@@ -75,6 +73,7 @@ return (
                 onChange={formik.handleChange}
                 placeholder='Username'
                 />
+                {formik.errors.username && <p>{formik.errors.username}</p>}
 
                 <input 
                 type='email'
@@ -83,6 +82,7 @@ return (
                 onChange={formik.handleChange}
                 placeholder='Email'
                 />
+                {formik.errors.email && <p>{formik.errors.email}</p>}
 
                 <input 
                 type='password'
@@ -91,6 +91,7 @@ return (
                 onChange={formik.handleChange}
                 placeholder='Password'
                 />
+                {formik.errors.password && <p>{formik.errors.password}</p>}
 
                 <input 
                 type='password'
@@ -99,6 +100,7 @@ return (
                 onChange={formik.handleChange}
                 placeholder='PasswordConfirmation'
                 />
+                {formik.errors.passwordConfirmation && <p>{formik.errors.passwordConfirmation}</p>}
 
                 <input 
                 type='number'
@@ -107,12 +109,11 @@ return (
                 onChange={formik.handleChange}
                 placeholder='Age'
                 />
+                {formik.errors.age && <p>{formik.errors.age}</p>}
 
                 <button type='submit'> Submit </button>
 
             </form>
-
-            {errors.split('-')}
 
             
         </div>
