@@ -19,7 +19,9 @@ const Signup = () => {
 
         },
     onSubmit: values => {
-        console.log(values);
+        values = {
+            ...values
+        }
 
         fetch("http://localhost:5000/auth/signup", {
             method: 'post',
@@ -55,13 +57,15 @@ const Signup = () => {
       validateOnChange: false
     })
 
+    const errors = Object.values(formik.errors)
+
     
 
 return (
 
         <div>
 
-            {error && "Signup fail. Password length have to be min 8 characters."}
+
 
             <form onSubmit={formik.handleSubmit}>
                 <input 
@@ -105,7 +109,12 @@ return (
                 />
 
                 <button type='submit'> Submit </button>
+
             </form>
+
+            {errors}
+
+            
         </div>
     );
 }
