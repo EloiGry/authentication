@@ -5,7 +5,7 @@ const LocalStrategy = passportLocal.Strategy
 
 const users = require("../users.json")
 
-passport.use(new LocalStrategy ((username, password, done) => {
+passport.use(new LocalStrategy((username, password, done) => {
     const user = users.find(user => user.username === username && user.password === password)
 
     if (!user) {

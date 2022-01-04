@@ -12,7 +12,7 @@ app.get('/signup', (req, res) => {
             res.status(500).send("Internal server error")
         }
 
-        const messages = Json.parse(data)
+        const messages = JSON.parse(data)
         res.json(messages)
     })
 })
@@ -20,6 +20,8 @@ app.get('/signup', (req, res) => {
 
 
 app.post('/signup', (req, res) => {
+
+const {email, username} = req.body
 
 const emailVerification = users.find(user => user.email === email)
 const usernameVerification = users.find(user => user.username === username )
