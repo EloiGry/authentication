@@ -26,7 +26,7 @@ const {email, username} = req.body
 const emailVerification = users.find(user => user.email === email)
 const usernameVerification = users.find(user => user.username === username )
 
-    if (!emailVerification && !usernameVerification) {
+    if (!emailVerification || !usernameVerification) {
         const allIds = users.map(user => user.id)
         const biggestId = Math.max(...allIds)
         

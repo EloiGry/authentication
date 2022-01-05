@@ -2,6 +2,8 @@ import React from 'react';
 import { useContext, useEffect, useState } from 'react';
 
 import { UserContext } from '../contexts/users';
+import Button from '@mui/material/Button'
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
     const { getUsers } = useContext(UserContext)
@@ -21,7 +23,11 @@ const Admin = () => {
         <div>
             {users.map(user => 
                 <h2> {user.username} </h2>)}
+
+            <Link to="/auth/login"> <Button variant="outlined"> Log out </Button></Link>
         </div>
+        
+
     );
 };
 
